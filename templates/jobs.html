@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Job Recommendation</h1>
+    <form method="post" action="{{ url_for('job_recommendations') }}">
+        <label for="skills">Enter your skills :</label>
+        <input type="text" id="skills" name="skills" required>
+        <button type="submit">Recommend Jobs</button>
+    </form>
+    {% if recommendations %}
+        <center><h2 style="color:white";>Recommended Job Domains:</h2></center>
+        <ul>
+            {% for domain in recommendations %}
+                <li>{{ domain }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <script src="{{ url_for('static', filename='script2.js') }}"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+// Prevent form submission double-click and show loading indicator
+console.log('Button clicked');
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    const submitButton = document.querySelector("button[type='submit']");
+
+    form.addEventListener("submit", function() {
+        submitButton.disabled = true;
+        submitButton.innerHTML = "Loading...";
+
+        // Optional: You can add additional logic here if needed.
+
+        // After a brief delay (e.g., 2 seconds), reset the button.
+        setTimeout(function() {
+            submitButton.disabled = false;
+            submitButton.innerHTML = "Recommend Jobs";
+        }, 2000);
+    });
+});

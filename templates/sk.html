@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+    </style>
+    <title>Logistic Regression Curve Chart</title>
+</head>
+<body>
+    <canvas id="lineChart" width="500" height="300"></canvas>
+
+    <script>
+        // Sample data points and logistic regression curve parameters
+        const dataPoints = [
+            { x: 1, y: 0 },
+            { x: 2, y: 0 },
+            { x: 3, y: 0 },
+            { x: 4, y: 1 },
+            { x: 5, y: 1 },
+        ];
+
+        // Logistic regression curve parameters (replace with your own coefficients)
+        const curveCoefficients = {
+            a: 1,
+            b: -4,
+        };
+
+        // Calculate the logistic regression curve
+        const regressionCurve = dataPoints.map(point => ({
+            x: point.x,
+            y: 1 / (1 + Math.exp(-curveCoefficients.a * (point.x - curveCoefficients.b))),
+        }));
+
+        // Get the canvas element and its context
+        const canvas = document.getElementById('lineChart');
+        const ctx = canvas.getContext('2d');
+
+        // Create the line chart
+        const lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dataPoints.map(point => point.x),
+                datasets: [
+                    {
+                        label: 'Logistic Regression Curve',
+                        data: regressionCurve,
+                        borderColor: 'blue',
+                        borderWidth: 2,
+                        fill: false,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'X-axis',
+                        },
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Y-axis',
+                        },
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>

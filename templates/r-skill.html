@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+    </style>
+    <title>Skill Data Bar Chart</title>
+</head>
+<body>
+    <canvas id="barChart" width="500" height="300"></canvas>
+
+    <script>
+        // Sample data for five skills
+        const skillsData = [
+            { skill: 'Skill 1', value: 500, color: 'red' },
+            { skill: 'Skill 2', value: 620, color: 'green' },
+            { skill: 'Skill 3', value: 700, color: 'blue' },
+            { skill: 'Skill 4', value: 500, color: 'yellow' },
+            { skill: 'Skill 5', value: 300, color: 'purple' },
+        ];
+
+        // Get the canvas element and its context
+        const canvas = document.getElementById('barChart');
+        const ctx = canvas.getContext('2d');
+
+        // Bar chart configuration
+        const barWidth = 40;
+        const spacing = 20;
+        const xOffset = 50;
+        const yOffset = 30;
+
+        // Function to draw a single bar
+        function drawBar(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+
+        // Function to draw the entire bar chart
+        function drawBarChart() {
+            let x = xOffset;
+
+            for (let i = 0; i < skillsData.length; i++) {
+                const { skill, value, color } = skillsData[i];
+                const barHeight = (value / 10); // You can adjust the scaling factor
+                const y = canvas.height - barHeight - yOffset;
+
+                drawBar(x, y, barWidth, barHeight, color);
+
+                // Draw labels
+                ctx.fillStyle = 'black';
+                ctx.fillText(skill, x + barWidth / 2 - 20, canvas.height - 10);
+
+                x += barWidth + spacing;
+            }
+        }
+
+        // Call the function to draw the bar chart
+        drawBarChart();
+    </script>
+</body>
+</html>
