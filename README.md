@@ -1,6 +1,6 @@
-# Future Skills Recommendation System using Machine Learning and Deep Learning
+Future Skills Recommendation System using Machine Learning and Deep Learning
 
-![Project Logo](https://drive.google.com/file/d/1zTPcMRtjuSGKgupORD6sEqVo10eoQZTL/view?usp=sharing)
+![dashboard](https://github.com/kMurshitha/Future-Skills-Recommendation-System/assets/95700042/352db40d-0363-47b2-bd7b-d6453e08ccc3)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -56,5 +56,5 @@ Before you begin, make sure you have the following installed:
 
 ## Flow Diagram
 
-![Project flow](https://drive.google.com/file/d/1b3RcydmBDZKw03JQrnIZlIlG7N2GGcf_/view?usp=sharing)
+![flow chart](https://github.com/kMurshitha/Future-Skills-Recommendation-System/assets/95700042/70bcb91e-8261-4337-a0d3-cc203d153e57)
 
